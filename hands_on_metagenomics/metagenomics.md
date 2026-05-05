@@ -250,7 +250,7 @@ An output folder called `4_megahit_results` will automatically created and it wi
 In order to run metaspades
 
 ```
-metaspades.py -1 trimmomatic_results/nice6_f_p.fastq -2 trimmomatic_results/nice6_r_p.fastq -t 30 -o metaspades_results
+metaspades.py -1 2_trimmomatic_results/nice6_f_p.fastq -2 2_trimmomatic_results/nice6_r_p.fastq -t 30 -o 4_metaspades_results
 ```
 An output folder called `4_metaspades_results` will automatically created and it will store the results.
 
