@@ -186,13 +186,11 @@ Then, you enter the folder
 cd 2_trimmomatic_results
 ```
 
-Since Illumina Universal Adapters are present, we need to create a FASTA file with their sequence to clip them with Trimmomatic.
+Since Illumina Adapters were detected, we need to use a FASTA file containing possible adapters to try to trim them away.
+This file has already been created and it is called `illumina_adapaters.fasta`
 
-```
-echo -e ">Illumina_Universal_Adapter\nAGATCGGAAGAG" > illumina_universal_adapters.fasta
-```
->[!TIP]
->in this case, the adapter sequence was taken from FastQC files
+>[!CAUTION]
+>Usually you want to use the adapters that were used in the library preparation specifically used for your samples
 
 Finally, we run trimmomatic:
 ```
