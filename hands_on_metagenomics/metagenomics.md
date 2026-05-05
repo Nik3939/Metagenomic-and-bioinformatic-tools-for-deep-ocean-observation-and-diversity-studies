@@ -462,8 +462,3 @@ Run
 ```
 checkm2 predict --threads 30 --input nice6/8_DASTool_results/nice6_DASTool_bins --output-directory 9_checkm2_results -x fa
 ```
-### Running BUSCO
-
->[!WARNING]
-> __working in progress__ ;-)
-
