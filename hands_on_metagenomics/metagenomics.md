@@ -186,13 +186,11 @@ Then, you enter the folder
 cd 2_trimmomatic_results
 ```
 
-Since Illumina Universal Adapters are present, we need to create a FASTA file with their sequence to clip them with Trimmomatic.
+Since Illumina Adapters were detected, we need to use a FASTA file containing possible adapters to try to trim them away.
+This file has already been created and it is called `illumina_adapaters.fasta`
 
-```
-echo -e ">Illumina_Universal_Adapter\nAGATCGGAAGAG" > illumina_universal_adapters.fasta
-```
->[!TIP]
->in this case, the adapter sequence was taken from FastQC files
+>[!CAUTION]
+>Usually you want to use the adapters that were used in the library preparation specifically used for your samples
 
 Finally, we run trimmomatic:
 ```
@@ -252,7 +250,7 @@ An output folder called `4_megahit_results` will automatically created and it wi
 In order to run metaspades
 
 ```
-metaspades.py -1 trimmomatic_results/nice6_f_p.fastq -2 trimmomatic_results/nice6_r_p.fastq -t 30 -o metaspades_results
+metaspades.py -1 2_trimmomatic_results/nice6_f_p.fastq -2 2_trimmomatic_results/nice6_r_p.fastq -t 30 -o 4_metaspades_results
 ```
 An output folder called `4_metaspades_results` will automatically created and it will store the results.
 
@@ -464,8 +462,3 @@ Run
 ```
 checkm2 predict --threads 30 --input nice6/8_DASTool_results/nice6_DASTool_bins --output-directory 9_checkm2_results -x fa
 ```
-### Running BUSCO
-
->[!WARNING]
-> __working in progress__ ;-)
-
