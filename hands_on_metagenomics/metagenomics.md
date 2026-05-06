@@ -454,11 +454,11 @@ cd 9_checkm_results
 ```
 
 ```
-checkm lineage_wf -t 30 -x fa nice6/8_DASTool_results/nice6_DASTool_bins . > checkm.out 2> checkm.log
+checkm lineage_wf -t 30 -x fa ../8_DASTool_results/nice6_DASTool_bins . > checkm.out 2> checkm.log
 ```
 ### Running checkm2
 Assuming you are at `~/workshop/nice6/`
 Run
 ```
-checkm2 predict --threads 30 --input nice6/8_DASTool_results/nice6_DASTool_bins --output-directory 9_checkm2_results -x fa
+checkm2 predict --threads 30 --input ../8_DASTool_results/nice6_DASTool_bins --output-directory 9_checkm2_results -x fa
 ```
