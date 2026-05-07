@@ -466,11 +466,49 @@ checkm2 predict --threads 30 --input ../8_DASTool_results/nice6_DASTool_bins --o
 ### Taxonomic Annotation (5)
 
 Since now we have reconstructed our MAGs, we will start to understand actually who and how novel are they, by performing a taxonomic classification using GTDB-Tk (classify workflow).
+Since this is a time demanding step, we will start running this command and then terminate it using ctrl C. The output results are already stored in a folder called 10_GTDB-TK_results.
 
 ```
-gtdbtk classify_wf --genome_dir 8_DASTool_results/nice3_DASTool_bins/ --extension fa --out_dir nice3_gtdbtk --cpus 30 
+gtdbtk classify_wf --genome_dir 8_DASTool_results/nice3_DASTool_bins/ --extension fa --out_dir nice3_gtdbtk_attempt --cpus 30 
 ```
 >[!CAUTION]
 >Don't forget to replace with your correct sample ID.
 
-### Functional Annotation (5)
+We can now have a look to the output files(replace the correct sample ID):
+```
+cd /root/workshop/10_GTDB-TK_results/10_nice3_gtdbtk/
+```
+
+The most relevant output is the summary table (gtdbtk.bac120.summary.tsv) that contains: 
+GTDB taxonomy assignment
+closest reference genomes
+ANI-based species calls
+RED values
+classification confidence
+
+
+
+### Functional Annotation (6)
+After the taxonomical annotation we will move into the functional annotation. Since now we know who we are dealing with, we want to understand what can these microbes actually (potentialy) do.
+First we will create a directory to store our results:
+```
+mkdir 011_Functional_annotation
+```
+We will start by using Prodigal for gene prediction.
+We can run the command for each fasta file (Bin) individually, for example:
+```
+prodigal -i /root/workshop/8_DASTool_results/nice3_DASTool_bins/1.fa -o nice3_1.genes -a nice3_1.proteins.faa
+prodigal -i /root/workshop/nice3/8_DASTool_results/nice3_DASTool_bins/4.fa -o nice3_4.genes -a nice3_4.proteins.faa
+prodigal -i /root/workshop/nice3/8_DASTool_results/nice3_DASTool_bins/25.fa -o nice3_25.genes -a nice3_25.proteins.faa
+prodigal -i /root/workshop/nice3/8_DASTool_results/nice3_DASTool_bins/27.fa -o nice3_27.genes -a nice3_27.proteins.faa
+```
+
+Or we can automate the process:
+```
+ls /root/workshop/8_DASTool_results/nice3_DASTool_bins/*.fa | xargs -n 1 -P 4 bash -c '
+    file="$0"
+    bin_num=$(basename "$file" .fa)
+    prodigal -i "$file" -o "nice3_${bin_num}.genes" -a "nice3_${bin_num}.proteins.faa"
+'
+```
+
