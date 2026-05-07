@@ -462,3 +462,15 @@ Run
 ```
 checkm2 predict --threads 30 --input ../8_DASTool_results/nice6_DASTool_bins --output-directory 9_checkm2_results -x fa
 ```
+
+### Taxonomic Annotation (5)
+
+Since now we have reconstructed our MAGs, we will start to understand actually who and how novel are they, by performing a taxonomic classification using GTDB-Tk (classify workflow).
+
+```
+gtdbtk classify_wf --genome_dir 8_DASTool_results/nice3_DASTool_bins/ --extension fa --out_dir nice3_gtdbtk --cpus 30 
+```
+>[!CAUTION]
+>Don't forget to replace with your correct sample ID.
+
+### Functional Annotation (5)
