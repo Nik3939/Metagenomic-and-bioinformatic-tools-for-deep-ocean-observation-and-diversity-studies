@@ -474,18 +474,12 @@ gtdbtk classify_wf --genome_dir 8_DASTool_results/nice3_DASTool_bins/ --extensio
 >[!CAUTION]
 >Don't forget to replace with your correct sample ID.
 
-We can now have a look to the output files(replace the correct sample ID):
+We can now have a look to the output files (replace the correct sample ID):
 ```
 cd /root/workshop/10_GTDB-TK_results/10_nice3_gtdbtk/
 ```
 
-The most relevant output is the summary table (gtdbtk.bac120.summary.tsv) that contains: 
-GTDB taxonomy assignment
-closest reference genomes
-ANI-based species calls
-RED values
-classification confidence
-
+The most relevant output is the summary table (gtdbtk.bac120.summary.tsv) that contains the GTDB taxonomy assignment, closest reference genomes, ANI-based species calls, RED values and classification confidence.
 
 
 ### Functional Annotation (6)
@@ -494,13 +488,16 @@ First we will create a directory to store our results:
 ```
 mkdir 011_Functional_annotation
 ```
+```
+cd 011_Functional_annotation
+```
 We will start by using Prodigal for gene prediction.
 We can run the command for each fasta file (Bin) individually, for example:
 ```
 prodigal -i /root/workshop/8_DASTool_results/nice3_DASTool_bins/1.fa -o nice3_1.genes -a nice3_1.proteins.faa
-prodigal -i /root/workshop/nice3/8_DASTool_results/nice3_DASTool_bins/4.fa -o nice3_4.genes -a nice3_4.proteins.faa
-prodigal -i /root/workshop/nice3/8_DASTool_results/nice3_DASTool_bins/25.fa -o nice3_25.genes -a nice3_25.proteins.faa
-prodigal -i /root/workshop/nice3/8_DASTool_results/nice3_DASTool_bins/27.fa -o nice3_27.genes -a nice3_27.proteins.faa
+prodigal -i /root/workshop/8_DASTool_results/nice3_DASTool_bins/4.fa -o nice3_4.genes -a nice3_4.proteins.faa
+prodigal -i /root/workshop/8_DASTool_results/nice3_DASTool_bins/25.fa -o nice3_25.genes -a nice3_25.proteins.faa
+prodigal -i /root/workshop/8_DASTool_results/nice3_DASTool_bins/27.fa -o nice3_27.genes -a nice3_27.proteins.faa
 ```
 
 Or we can automate the process:
