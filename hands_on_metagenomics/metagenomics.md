@@ -530,3 +530,6 @@ We need to download now this file and upload it to [KEGG mapper reconstruct](htt
 ```
 scp -r root@node1.ciimar.sligart.com:/root/workshop/011_Functional_annotation/nice3_1_kofam_results.mapper  .
 ```
+
+### Functional Annotation - Biosynthetic gene clusters (7)
+We will now use antiSMASH for the identification and annotation of biosynthetic gene clusters. antiSMASH can be used by a public [web version](https://antismash.secondarymetabolites.org/#!/start) or using a local installation. 
