@@ -528,7 +528,7 @@ grep '^\*' nice3_1_kofam_results.tsv | awk '{print $2 "\t" $3}' > nice3_1_kofam_
 
 We need to download now this file and upload it to [KEGG mapper reconstruct](https://www.genome.jp/kegg/mapper/reconstruct.html).
 ```
-scp -r root@node1.ciimar.sligart.com:/root/workshop/011_Functional_annotation/nice3_1_kofam_results.mapper  .
+scp -r root@node1.ciimar.sligart.com:/root/workshop/011_Functional_annotation/nice3_1_kofam_results.mapper .
 ```
 
 ### Functional Annotation - Biosynthetic gene clusters (7)
@@ -537,8 +537,15 @@ We will be doing this in the web version.
 
 To do so, each member of the team can select one MAG, download it and submit it to [antiSMASH](https://antismash.secondarymetabolites.org/#!/start). 
 
+Example to download Bin 4 from sample nice3:
+scp -r root@node1.ciimar.sligart.com:/root/workshop8_DASTool_results/nice3_DASTool_bins/4.fa .
+
 We can complement the antiSMASH analysis by running [BiG-SCAPE]( https://github.com/medema-group/BiG-SCAPE) (Biosynthetic Gene Similarity Clustering and Prospecting Engine), which builds sequence similarity networks (SSNs) of BGCs and groups them into Gene Cluster Families (GCFs). With this we can visualize how closely related the recovered BGCs are from each other and from BGCs that codify for characterized compounds in the [MIBiG](https://mibig.secondarymetabolites.org/) database. To run BiG-SCAPE we use an input the output genbank files from the antiSMASH analysis.
 
 ```
 bigscape cluster -i nice3_for_bigscape -o nice3_bigscape_out -p /root/databases/Pfam-A.hmm --mix --gcf-cutoffs 0.5,0.8 --mibig-version 4.0 --include-singletons
+```
+After finishing we can download the BiG-SCAPE output folder (e.g nice3_bigscape_out), which includes a detailed HTML output report and the network files.
+```
+scp -r root@node1.ciimar.sligart.com:/root/workshop/011_Functional_annotation/nice3_bigscape_out .
 ```
