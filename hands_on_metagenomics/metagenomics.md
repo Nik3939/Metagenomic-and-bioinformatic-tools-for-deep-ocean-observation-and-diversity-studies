@@ -526,7 +526,7 @@ Next, we need to convert the results (tsv table) into a file that is readable an
 grep '^\*' nice3_1_kofam_results.tsv | awk '{print $2 "\t" $3}' > nice3_1_kofam_results.mapper
 ```
 
-We need to download now this file and upload it to KEGG mapper reconstruct.
-
-
-
+We need to download now this file and upload it to [KEGG mapper reconstruct](https://www.genome.jp/kegg/mapper/reconstruct.html).
+```
+scp -r root@node1.ciimar.sligart.com:/root/workshop/011_Functional_annotation/nice3_1_kofam_results.mapper  .
+```
