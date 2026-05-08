@@ -480,8 +480,10 @@ cd /root/workshop/10_GTDB-TK_results/10_nice3_gtdbtk/
 ```
 
 The most relevant output is the summary table [gtdbtk.bac120.summary.tsv](https://ecogenomics.github.io/GTDBTk/files/summary.tsv.html) that contains the GTDB taxonomy assignment, closest reference genomes, ANI-based species calls, RED values and classification confidence.
-
-
+Download the table:
+```
+scp -r root@node1.ciimar.sligart.com:/root/workshop/10_GTDB-TK_results/10_nice3_gtdbtk/ .
+```
 ### Functional Annotation (6)
 After the taxonomical annotation we will move into the functional annotation. Since now we know who we are dealing with, we want to understand what can these microbes actually (potentialy) do.
 First we will create a directory to store our results:
