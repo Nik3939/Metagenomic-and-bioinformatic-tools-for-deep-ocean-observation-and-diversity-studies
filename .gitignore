@@ -1,3 +1,8 @@
 # ignore large files
 lectures/Sampling protocols and standardization_CM_5_5_2026.pptx
 
+.Rproj.user
+hands-on-metabarcoding/.RData
+hands-on-metabarcoding/.Rhistory
+hands-on-metabarcoding/hands-on-metabarcoding.Rproj
+
