@@ -479,7 +479,7 @@ We can now have a look to the output files (replace the correct sample ID):
 cd /root/workshop/10_GTDB-TK_results/10_nice3_gtdbtk/
 ```
 
-The most relevant output is the summary table (gtdbtk.bac120.summary.tsv) that contains the GTDB taxonomy assignment, closest reference genomes, ANI-based species calls, RED values and classification confidence.
+The most relevant output is the summary table [gtdbtk.bac120.summary.tsv](https://ecogenomics.github.io/GTDBTk/files/summary.tsv.html) that contains the GTDB taxonomy assignment, closest reference genomes, ANI-based species calls, RED values and classification confidence.
 
 
 ### Functional Annotation (6)
